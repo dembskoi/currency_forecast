@@ -13,12 +13,10 @@ class User < ApplicationRecord
     login = conditions.delete(:login)
     if login
       where(conditions).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }]).first
+    elsif conditions[:username].nil?
+      where(conditions).first
     else
-      if conditions[:username].nil?
-        where(conditions).first
-      else
-        where(username: conditions[:username]).first
-      end
+      where(username: conditions[:username]).first
     end
   end
 
@@ -27,5 +25,4 @@ class User < ApplicationRecord
   def validate_username
     errors.add(:username, :invalid) if User.where(email: username).exists?
   end
-
 end
