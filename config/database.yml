@@ -13,4 +13,3 @@ development:
 test:
   <<: *default
   database: currency_exchange_test
-  
