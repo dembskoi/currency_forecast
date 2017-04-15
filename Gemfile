@@ -68,7 +68,8 @@ group :test do
   gem 'capybara'
   # Strategies for cleaning databases in Ruby
   gem 'database_cleaner'
-
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers'
   gem 'launchy'
   gem 'selenium-webdriver'
 end
