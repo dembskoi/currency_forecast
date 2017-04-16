@@ -22,18 +22,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-end
-group :development do
-  gem 'listen', '~> 3.0.5'
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Flexible authentication solution for Rails
@@ -49,11 +37,24 @@ end
 # Heroku assets support
 gem 'rails_12factor', group: :production
 
+# HTTP client lib
+gem 'faraday'
+
 group :development do
+  gem 'listen', '~> 3.0.5'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
   # This gem implements the rspec command for Spring
   gem 'spring-commands-rspec'
 end
 group :development, :test do
+  # Pretty print your Ruby objects with style in full color and with proper indentation
+  gem 'awesome_print'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
   # A Ruby static code analyzer, based on the community Ruby style guide
   gem 'rubocop', require: false
   # Factory
