@@ -11,13 +11,13 @@
       .col-sm-2
         = f.label :base_currency
       .col-sm-4
-        = f.select :base_currency_id, options_for_select(Currency.pluck(:code, :id))
+        = f.select :base_currency_id, options_for_select(Currency.codes_by_id)
   .form-group
     .row
       .col-sm-2
         = f.label :target_currency
       .col-sm-4
-        = f.select :target_currency_id, options_for_select(Currency.pluck(:code, :id))
+        = f.select :target_currency_id, options_for_select(Currency.codes_by_id)
   .form-group
     .row
       .col-sm-2

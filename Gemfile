@@ -39,6 +39,8 @@ gem 'rails_12factor', group: :production
 gem 'faraday'
 # Decorators/View-Models
 gem 'draper', '3.0.0.pre1'
+# Provides a full set of stores (Cache, Session, HTTP Cache)
+gem 'redis-rails'
 group :development do
   gem 'listen', '~> 3.0.5'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
