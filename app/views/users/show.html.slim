@@ -1,5 +1,11 @@
-h3 User
-p
-  | Name: #{@user.username if @user.username}
-p
-  | Email: #{@user.email if @user.email}
+h4 User
+.row
+  .col-md-2
+    strong= 'Name:'
+  .col-md-10
+    = @user.username if @user.username
+.row
+  .col-md-2
+    strong= 'Email:'
+  .col-md-10
+    = @user.email if @user.email

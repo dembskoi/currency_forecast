@@ -1,0 +1,30 @@
+.container-fluid
+  .row
+    .col-md-3
+      h3 Calculations
+    .col-md-9
+      .float-sm-right
+        = link_to 'New Calculation', new_calculation_path, class: 'btn btn-success'
+br
+.row
+  .col-md-12
+    table#calculations_table.table.table-striped.table-bordered cellspacing='0'
+      thead
+        tr
+          th Base currency
+          th Target currency
+          th Amount
+          th Max waiting time
+          th
+          th
+          th
+      tbody
+        - @calculations.each do |calculation|
+          tr
+            td = calculation.base_currency
+            td = calculation.target_currency
+            td = calculation.amount
+            td = calculation.max_waiting_time
+            td = link_to 'Show', calculation
+            td = link_to 'Edit', edit_calculation_path(calculation)
+            td = link_to 'Destroy', calculation, data: { confirm: 'Are you sure?' }, method: :delete

@@ -1,0 +1,34 @@
+= form_for @calculation do |f|
+  - if @calculation.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@calculation.errors.count, 'error')} prohibited this calculation from being saved:"
+      ul
+        - @calculation.errors.full_messages.each do |message|
+          li = message
+
+  .form-group
+    .row
+      .col-sm-2
+        = f.label :base_currency
+      .col-sm-4
+        = f.text_field :base_currency
+  .form-group
+    .row
+      .col-sm-2
+        = f.label :target_currency
+      .col-sm-4
+        = f.text_field :target_currency
+  .form-group
+    .row
+      .col-sm-2
+        = f.label :amount
+      .col-sm-4
+        = f.number_field :amount
+  .form-group
+    .row
+      .col-sm-2
+        = f.label :max_waiting_time
+      .col-sm-4
+        = f.number_field :max_waiting_time
+  .form-group
+    = f.submit class: 'submit'

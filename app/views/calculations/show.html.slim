@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Base currency:
+  = @calculation.base_currency
+p
+  strong Target currency:
+  = @calculation.target_currency
+p
+  strong Amount:
+  = @calculation.amount
+p
+  strong Max waiting time:
+  = @calculation.max_waiting_time
+
+= link_to 'Edit', edit_calculation_path(@calculation)
+'  |
+= link_to 'Back', calculations_path

@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418162138) do
+ActiveRecord::Schema.define(version: 20170418173758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calculations", force: :cascade do |t|
+    t.integer  "base_currency_id"
+    t.integer  "target_currency_id"
+    t.integer  "amount"
+    t.integer  "max_waiting_time"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["base_currency_id"], name: "index_calculations_on_base_currency_id", using: :btree
+    t.index ["target_currency_id"], name: "index_calculations_on_target_currency_id", using: :btree
+  end
 
   create_table "currencies", force: :cascade do |t|
     t.string "code", limit: 3
@@ -37,4 +48,6 @@ ActiveRecord::Schema.define(version: 20170418162138) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "calculations", "currencies", column: "base_currency_id"
+  add_foreign_key "calculations", "currencies", column: "target_currency_id"
 end
