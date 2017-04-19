@@ -37,7 +37,8 @@ end
 gem 'rails_12factor', group: :production
 # HTTP client lib
 gem 'faraday'
-
+# Decorators/View-Models
+gem 'draper', '3.0.0.pre1'
 group :development do
   gem 'listen', '~> 3.0.5'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

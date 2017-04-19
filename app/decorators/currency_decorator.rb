@@ -1,0 +1,1 @@
+class CurrencyDecorator < ApplicationDecorator; end

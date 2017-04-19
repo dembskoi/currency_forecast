@@ -21,8 +21,8 @@ br
       tbody
         - @calculations.each do |calculation|
           tr
-            td = calculation.base_currency
-            td = calculation.target_currency
+            td = calculation.base_currency_code
+            td = calculation.target_currency_code
             td = calculation.amount
             td = calculation.max_waiting_time
             td = link_to 'Show', calculation

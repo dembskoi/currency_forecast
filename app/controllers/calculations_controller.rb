@@ -1,10 +1,11 @@
 class CalculationsController < ApplicationController
+  decorates_assigned :calculation
   before_action :set_calculation, only: %i[show edit update destroy]
 
   # GET /calculations
   # GET /calculations.json
   def index
-    @calculations = Calculation.all
+    @calculations = Calculation.all.decorate
   end
 
   # GET /calculations/1
