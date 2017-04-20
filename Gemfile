@@ -41,6 +41,8 @@ gem 'faraday'
 gem 'draper', '3.0.0.pre1'
 # Provides a full set of stores (Cache, Session, HTTP Cache)
 gem 'redis-rails'
+# Money gem for rails
+gem 'money-rails'
 group :development do
   gem 'listen', '~> 3.0.5'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
