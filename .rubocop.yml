@@ -26,3 +26,6 @@ Style/BlockComments:
 
 Metrics/BlockLength:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false

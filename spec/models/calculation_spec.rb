@@ -20,17 +20,17 @@ RSpec.describe Calculation, type: :model do
     it { is_expected.to validate_presence_of(:amount) }
     it { is_expected.to validate_presence_of(:max_waiting_time) }
     it do
-      is_expected.to validate_numericality_of(:amount).only_integer.
-        is_greater_than(0).is_less_than_or_equal_to(2147483647)
+      is_expected.to validate_numericality_of(:amount).only_integer
+        .is_greater_than(0).is_less_than_or_equal_to(2_147_483_647)
     end
     it do
-      is_expected.to validate_numericality_of(:max_waiting_time).only_integer.
-        is_greater_than_or_equal_to(1).is_less_than_or_equal_to(250)
+      is_expected.to validate_numericality_of(:max_waiting_time).only_integer
+        .is_greater_than_or_equal_to(1).is_less_than_or_equal_to(250)
     end
     it 'raises an error if base_currency and target_currency are equals' do
       calculation = create(:calculation)
       calculation.base_currency_id = calculation.target_currency_id
-      expect{ calculation.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      expect { calculation.save! }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 end
