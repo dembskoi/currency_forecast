@@ -18,6 +18,17 @@ img {
 .form {
   @extend .col-md-6;
 }
+.form-group {
+  label {
+    &.required {
+      &:after {
+        content: "*";
+        color: $red;
+        margin-left: 3px;
+      }
+    }
+  }
+}
 .form-centered {
   @extend .col-md-6;
   @extend .text-sm-center;

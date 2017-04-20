@@ -25,6 +25,6 @@ br
             td = calculation.target_currency_code
             td = calculation.amount
             td = calculation.max_waiting_time
-            td = link_to 'Show', calculation
+            td = link_to 'Result', calculation
             td = link_to 'Edit', edit_calculation_path(calculation)
             td = link_to 'Destroy', calculation, data: { confirm: 'Are you sure?' }, method: :delete

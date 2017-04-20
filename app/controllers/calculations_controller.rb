@@ -5,7 +5,7 @@ class CalculationsController < ApplicationController
   # GET /calculations
   # GET /calculations.json
   def index
-    @calculations = Calculation.all.decorate
+    @calculations = Calculation.includes(:base_currency, :target_currency).decorate
   end
 
   # GET /calculations/1

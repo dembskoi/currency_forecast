@@ -9,25 +9,25 @@
   .form-group
     .row
       .col-sm-2
-        = f.label :base_currency
+        = f.label :base_currency, class: 'required'
       .col-sm-4
-        = f.select :base_currency_id, options_for_select(Currency.codes_by_id)
+        = f.select :base_currency_id, options_for_select(Currency.codes_by_id, f.object.base_currency_id)
   .form-group
     .row
       .col-sm-2
-        = f.label :target_currency
+        = f.label :target_currency, class: 'required'
       .col-sm-4
-        = f.select :target_currency_id, options_for_select(Currency.codes_by_id)
+        = f.select :target_currency_id, options_for_select(Currency.codes_by_id, f.object.target_currency_id)
   .form-group
     .row
       .col-sm-2
-        = f.label :amount
+        = f.label :amount, class: 'required'
       .col-sm-4
         = f.number_field :amount
   .form-group
     .row
       .col-sm-2
-        = f.label :max_waiting_time
+        = f.label :max_waiting_time, class: 'required'
       .col-sm-4
         = f.number_field :max_waiting_time
   .form-group
