@@ -1,18 +1,26 @@
-p#notice = notice
+.container-fluid
+  h3 Results
+br
+.row
+  .col-md-12
+    table#results_table.table.table-striped.table-bordered cellspacing='0'
+      thead
+        tr
+          th Year & Week
+          th Rate
+          th Exchange sum
+          th Profit/Loss
+          th Rank
+      tbody
+        - @results.each do |result|
+          tr
+            td = result.year_and_week
+            td = result.rate
+            td = result.exchange_sum
+            td = result.profit_loss
+            td = result.rank
 
-p
-  strong Base currency:
-  = calculation.base_currency_code
-p
-  strong Target currency:
-  = calculation.target_currency_code
-p
-  strong Amount:
-  = calculation.amount
-p
-  strong Max waiting time:
-  = calculation.max_waiting_time
-
-= link_to 'Edit', edit_calculation_path(@calculation)
-'  |
-= link_to 'Back', calculations_path
+.container-fluid
+  = link_to 'Edit', edit_calculation_path(@calculation)
+  '  |
+  = link_to 'Back', calculations_path

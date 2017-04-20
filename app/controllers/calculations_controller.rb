@@ -10,7 +10,9 @@ class CalculationsController < ApplicationController
 
   # GET /calculations/1
   # GET /calculations/1.json
-  def show; end
+  def show
+    @results = Result.new(@calculation).all
+  end
 
   # GET /calculations/new
   def new

@@ -1,0 +1,1 @@
+class CurrencyRate < ApplicationRecord; end

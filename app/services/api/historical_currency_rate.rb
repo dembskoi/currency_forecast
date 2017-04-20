@@ -1,5 +1,5 @@
 module API
-  class CurrencyExchange < Request
+  class HistoricalCurrencyRate < Request
     class << self
       def latest(base = nil)
         request_url = '/latest'
