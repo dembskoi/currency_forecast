@@ -2,9 +2,12 @@ RSpec.describe Calculation, type: :model do
   context 'relations' do
     it { is_expected.to belong_to(:base_currency) }
     it { is_expected.to belong_to(:target_currency) }
+    it { is_expected.to belong_to(:user) }
   end
 
   context 'attributes' do
+    it { is_expected.to respond_to(:user) }
+    it { is_expected.to respond_to(:user_id) }
     it { is_expected.to respond_to(:base_currency) }
     it { is_expected.to respond_to(:base_currency_id) }
     it { is_expected.to respond_to(:target_currency) }

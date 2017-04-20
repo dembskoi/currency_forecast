@@ -1,6 +1,7 @@
 class Calculation < ApplicationRecord
   belongs_to :base_currency, class_name: 'Currency'
   belongs_to :target_currency, class_name: 'Currency'
+  belongs_to :user
 
   validates :amount, :max_waiting_time, presence: true
   # Max PostgreSQL integer is 4 bytes	= 2147483647

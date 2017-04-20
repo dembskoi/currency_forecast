@@ -5,7 +5,7 @@ class CalculationsController < ApplicationController
   # GET /calculations
   # GET /calculations.json
   def index
-    @calculations = Calculation.includes(:base_currency, :target_currency).decorate
+    @calculations = current_user.calculations.includes(:base_currency, :target_currency).decorate
   end
 
   # GET /calculations/1
@@ -64,11 +64,11 @@ class CalculationsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_calculation
-    @calculation = Calculation.find(params[:id])
+    @calculation = current_user.calculations.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def calculation_params
-    params.require(:calculation).permit(:base_currency_id, :target_currency_id, :amount, :max_waiting_time)
+    params.require(:calculation).permit(:user_id, :base_currency_id, :target_currency_id, :amount, :max_waiting_time)
   end
 end

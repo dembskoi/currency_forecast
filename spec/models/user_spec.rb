@@ -1,4 +1,8 @@
 RSpec.describe User, type: :model do
+  context 'relations' do
+    it { is_expected.to have_many(:calculations) }
+  end
+
   context 'attributes' do
     it { is_expected.to respond_to(:email) }
     it { is_expected.to respond_to(:username) }
