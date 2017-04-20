@@ -22,5 +22,9 @@ module CurrencyForecast
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.cache_store = :redis_store, { host: 'localhost',
+                                         port: 6379,
+                                         namespace: "currency_forecast_#{Rails.env}",
+                                         expires_in: 6.hours }
   end
 end
