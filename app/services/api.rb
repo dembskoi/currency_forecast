@@ -1,9 +1,7 @@
 module API
   module Logger
-    LOGGER_OUTPUT = 'log/api.log'.freeze
-
     def logger
-      @logger ||= ::Logger.new(LOGGER_OUTPUT)
+      @logger ||= ::Logger.new(ENV['LOGGER_OUTPUT'] || STDOUT)
     end
   end
 
