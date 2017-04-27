@@ -5,6 +5,6 @@ class CalculationDecorator < ApplicationDecorator
   delegate :code, to: :target_currency, prefix: true
 
   def amount
-    humanized_money_with_symbol Money.new(object.amount, base_currency_code)
+    humanized_money_with_symbol Money.new(object.amount * 100, base_currency_code)
   end
 end

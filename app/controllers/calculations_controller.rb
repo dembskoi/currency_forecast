@@ -11,7 +11,7 @@ class CalculationsController < ApplicationController
   # GET /calculations/1
   # GET /calculations/1.json
   def show
-    @results = Result.new(@calculation).all
+    @results = Result.all(@calculation)
   end
 
   # GET /calculations/new

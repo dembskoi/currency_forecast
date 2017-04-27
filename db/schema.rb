@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420205848) do
+ActiveRecord::Schema.define(version: 20170425183934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "calculations", force: :cascade do |t|
     t.integer  "base_currency_id"
@@ -30,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170420205848) do
 
   create_table "currencies", force: :cascade do |t|
     t.string "code", limit: 3
+  end
+
+  create_table "currency_rates", force: :cascade do |t|
+    t.integer  "base_currency_id"
+    t.integer  "year"
+    t.integer  "week"
+    t.hstore   "rates"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["base_currency_id", "year", "week"], name: "index_currency_rates_on_base_currency_id_and_year_and_week", unique: true, using: :btree
+    t.index ["base_currency_id"], name: "index_currency_rates_on_base_currency_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +65,5 @@ ActiveRecord::Schema.define(version: 20170420205848) do
   add_foreign_key "calculations", "currencies", column: "base_currency_id"
   add_foreign_key "calculations", "currencies", column: "target_currency_id"
   add_foreign_key "calculations", "users"
+  add_foreign_key "currency_rates", "currencies", column: "base_currency_id"
 end

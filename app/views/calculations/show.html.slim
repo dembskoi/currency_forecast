@@ -6,18 +6,20 @@ br
     table#results_table.table.table-striped.table-bordered cellspacing='0'
       thead
         tr
-          th Year & Week
+          th Year
+          th Week
           th Rate
           th Exchange sum
-          th Profit/Loss
+          /th Profit/Loss
           th Rank
       tbody
         - @results.each do |result|
           tr
-            td = result.year_and_week
+            td = result.year
+            td = result.week
             td = result.rate
             td = result.exchange_sum
-            td = result.profit_loss
+            /td = result.profit_loss
             td = result.rank
 
 .container-fluid
