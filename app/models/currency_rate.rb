@@ -6,6 +6,7 @@ class CurrencyRate < ApplicationRecord
   validates :year, :week, :rates, presence: true
   validates :year, numericality: { only_integer: true, greater_than_or_equal_to: 2010, less_than_or_equal_to: 2050 }
   validates :week, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 53 }
+  validates :base_currency_id, uniqueness: { scope: %i[year week] }
 
   def self.rates(base_currency_id, weeks_count)
     finish_year, finish_week = year_and_week_by_date(Date.today)
