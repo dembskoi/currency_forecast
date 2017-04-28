@@ -8,9 +8,9 @@ module YearAndWeek
     [date.year, date.cweek]
   end
 
-  def years_weeks_each(weeks_count)
-    finish_year, finish_week = year_and_week_by_date(Date.today)
-    start_year, start_week = year_and_week_by_date(Date.today - (weeks_count - 1).weeks)
+  def years_weeks_each(start_date, finish_date)
+    start_year, start_week = year_and_week_by_date(start_date)
+    finish_year, finish_week = year_and_week_by_date(finish_date)
     (start_year..finish_year).each do |year|
       start_week_in_year = year == start_year ? start_week : 1
       finish_week_in_year = year == finish_year ? finish_week : weeks_count_by_year(year)

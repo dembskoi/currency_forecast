@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require jquery.dataTables.min.js
 //= require dataTables.bootstrap4.min.js
+//= require Chart
 //= require_tree .

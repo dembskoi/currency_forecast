@@ -1,5 +1,9 @@
 .container-fluid
   h3 Results
+  br
+  .row
+    .col-md-12
+      canvas#results-chart data-labels=@labels data-values=@values data-type='line' data-name='Forecast' height="100"
 br
 .row
   .col-md-12
@@ -10,19 +14,19 @@ br
           th Week
           th Rate
           th Exchange sum
-          /th Profit/Loss
           th Rank
       tbody
-        - @results.each do |result|
+        - @decorated_results.each do |result|
           tr
             td = result.year
             td = result.week
             td = result.rate
             td = result.exchange_sum
-            /td = result.profit_loss
             td = result.rank
 
 .container-fluid
   = link_to 'Edit', edit_calculation_path(@calculation)
   '  |
   = link_to 'Back', calculations_path
+
+

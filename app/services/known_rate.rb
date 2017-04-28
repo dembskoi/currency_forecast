@@ -20,7 +20,7 @@ class KnownRate
 
   def rates_from_api
     rates = []
-    years_weeks_each(weeks_count) do |year, week|
+    years_weeks_each(Date.today - (weeks_count - 1).weeks, Date.today) do |year, week|
       next if rates_from_db.any? { |rate| rate.base_currency_id == base_currency.id && rate.year == year && rate.week == week }
       response = API::HistoricalCurrencyRate.by_date(Date.commercial(year, week), base_currency.code)
       if response.success?

@@ -45,6 +45,8 @@ gem 'redis-rails'
 gem 'money-rails'
 # The bulk insertions in the db
 gem 'activerecord-import'
+# Chart.js for Rails
+gem 'chart-js-rails'
 group :development do
   gem 'listen', '~> 3.0.5'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

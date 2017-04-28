@@ -11,7 +11,10 @@ class CalculationsController < ApplicationController
   # GET /calculations/1
   # GET /calculations/1.json
   def show
-    @results = Result.all(@calculation)
+    results = Result.all(@calculation)
+    @decorated_results = ResultDecorator.decorate_collection results
+    @labels = results.map { |result| "#{result.year} - #{result.week}" }
+    @values = results.map(&:exchange_sum)
   end
 
   # GET /calculations/new
