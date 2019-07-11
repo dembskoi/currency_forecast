@@ -33,14 +33,14 @@ module API
   class Request
     include Logger
 
-    API_ENDPOINT = 'http://api.fixer.io'.freeze
+    API_ENDPOINT = 'http://data.fixer.io/api/'.freeze
 
     attr_reader :connection, :request_url, :params
 
     def initialize(request_url, params = {})
       @connection = Faraday.new(url: API_ENDPOINT)
       @request_url = request_url
-      @params = params
+      @params = { access_key: ENV['API_ACCESS_KEY'] }.merge params
     end
 
     def analyze_response(data)
